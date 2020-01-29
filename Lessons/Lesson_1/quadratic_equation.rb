@@ -16,14 +16,14 @@ puts 'Введите c'
 c = gets.chomp.to_f
 d = b * b - 4 * a * c
 if d == 0
-	puts "x = "+(-b/2/a).to_s
+  puts "x = "+(-b/2/a).to_s
 else
 if d > 0
-	puts "x1 = " +((- b - Math.sqrt(d))/2/a).to_f
-	puts "x2 = " +((- b + Math.sqrt(d))/2/a).to_f
+  puts "x1 = " +((- b - Math.sqrt(d))/2/a).to_f
+  puts "x2 = " +((- b + Math.sqrt(d))/2/a).to_f
 else
-	puts "x1 = (" +(- b/2/a).to_s+","+(Math.sqrt(-d)/2/a).to_f+ ")"
-	puts "x2 = (" +(- b/2/a).to_s+","+(Math.sqrt(-d)/2/a).to_f+ ")"
+  puts "x1 = (" +(- b/2/a).to_s+","+(Math.sqrt(-d)/2/a).to_f+ ")"
+  puts "x2 = (" +(- b/2/a).to_s+","+(Math.sqrt(-d)/2/a).to_f+ ")"
 if d < 0
   puts "#{d}, Корней нет"
 end
