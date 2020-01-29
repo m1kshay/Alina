@@ -8,24 +8,24 @@ Math.sqrt
 Math.sqrt(16)
   вернет 4, т.е. квадратный корень из 16.
 =end
-puts "Введите a"
+puts 'Введите a'
 a = gets.chomp.to_f
-puts "Введите b"
+puts 'Введите b'
 b = gets.chomp.to_f
-puts "Введите c"
+puts 'Введите c'
 c = gets.chomp.to_f
-d = b*b-4*a*c
-if (d == 0)
+d = b * b - 4 * a * c
+if d == 0
 	puts "x = "+(-b/2/a).to_s
 else
-if (d > 0)
-	puts "x1 = "+((-b-Math.sqrt(d))/2/a).to_s
-	puts "x2 = "+((-b+Math.sqrt(d))/2/a).to_s
+if d > 0
+	puts "x1 = " +((- b - Math.sqrt(d))/2/a).to_f
+	puts "x2 = " +((- b + Math.sqrt(d))/2/a).to_f
 else
-	puts "x1 = ("+(-b/2/a).to_s+","+(Math.sqrt(-d)/2/a).to_s+")"
-	puts "x2 = ("+(-b/2/a).to_s+","+(Math.sqrt(-d)/2/a).to_s+")"
-if (d < 0)
-puts "#{d}, Корней нет"
+	puts "x1 = (" +(- b/2/a).to_s+","+(Math.sqrt(-d)/2/a).to_f+ ")"
+	puts "x2 = (" +(- b/2/a).to_s+","+(Math.sqrt(-d)/2/a).to_f+ ")"
+if d < 0
+  puts "#{d}, Корней нет"
 end
 
 
