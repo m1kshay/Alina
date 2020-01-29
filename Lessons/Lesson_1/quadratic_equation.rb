@@ -14,18 +14,19 @@ puts 'Введите b'
 b = gets.chomp.to_f
 puts 'Введите c'
 c = gets.chomp.to_f
-d = b * b - 4 * a * c
-if d == 0
-  puts "x = "+(-b/2/a).to_s
-else
+d = b**b - 4 * a * c
+sqrt_d = Math.sqrt(d)
 if d > 0
-  puts "x1 = " +((- b - Math.sqrt(d))/2/a).to_f
-  puts "x2 = " +((- b + Math.sqrt(d))/2/a).to_f
+  x1 = (- b - sqrt_d)/(2.0 * a).to_f
+  x2 = (- b + sqrt_d)/(2.0 * a).to_f
+  puts "Корни уравнения равны #{x1} и #{x2}"
+elsif
+  d == 0
+  x = (-b)/(2.0 * a)
+  puts "Дискриминант #{d}, корень уравнения равен #{x}"
 else
-  puts "x1 = (" +(- b/2/a).to_s+","+(Math.sqrt(-d)/2/a).to_f+ ")"
-  puts "x2 = (" +(- b/2/a).to_s+","+(Math.sqrt(-d)/2/a).to_f+ ")"
-if d < 0
-  puts "#{d}, Корней нет"
+  d < 0
+  puts "#{d}, корней нет"
 end
 
 
