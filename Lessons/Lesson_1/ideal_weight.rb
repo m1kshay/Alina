@@ -6,7 +6,6 @@ puts 'How tall are you?'
 tall = gets.chomp.to_i
 ideal_weight = ((tall - 110) * 1.15).round(0)
 if ideal_weight < 0
-  then
   puts 'Your weight optimal already'
 else
   puts "#{first_name}, your ideal weight is #{ideal_weight} kg"
