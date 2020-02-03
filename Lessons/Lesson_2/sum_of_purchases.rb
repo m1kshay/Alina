@@ -7,8 +7,7 @@ sum = 0
 loop do
   print "Название товара (или \'стоп\') для завершения:"
   name = gets.chomp
-  if item_name == 'стоп'
-    break
+  break if item_name == 'стоп'
   end
   print 'Цена: '
   price = gets.to_f

@@ -1,22 +1,20 @@
-#5. Заданы три числа, которые обозначают число, месяц, год (запрашиваем у пользователя). Найти порядковый номер даты, начиная отсчет с начала года. Учесть, что год может быть високосным. (Запрещено использовать встроенные в ruby методы для этого вроде Date#yday или Date#leap?) Алгоритм опредления високосного года: www.adm.yar.ru
-
+=begin5. Заданы три числа, которые обозначают число, месяц, год (запрашиваем у пользователя). Найти порядковый номер даты, начиная отсчет с начала года. Учесть, что год может быть високосным. (Запрещено использовать встроенные в ruby методы для этого вроде Date#yday или Date#leap?) Алгоритм опредления високосного года: www.adm.yar.ru
+=end
 print 'Введите день:'
-day = gets.chomp.to_i
+user_day = gets.chomp.to_i
 print 'Введите месяц:'
-month = gets.chomp.to_i
+user_month = gets.chomp.to_i
 print 'Введите год:'
-year = gets.chomp.to_i
+user_year = gets.chomp.to_i
 
-days_in_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-days_in_months[1] = 29 if year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)
+month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-date = 0
-
-days_in_months.each.with_index(1) do |date, index|
-  if index < month
-    date += date
-  elsif index == month
-    date += day
-  end
+def leap_year?(year)
+  (year % 4 == 0 && year % 100 != 0) || year % 400 == 0
 end
-puts "Порядковый номер даты: #{date}"
+
+month_days[1] = 29 if leap_year?(user_year)
+
+date_counter = user_day + month_days.take(user_month - 1).reduce(0, :+)
+
+puts "Порядковый номер даты: #{date_counter}"
