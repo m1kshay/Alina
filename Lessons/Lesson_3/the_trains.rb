@@ -21,32 +21,47 @@ class Station
 end
 
 class Route
-  attr_reader :list_of_stations
+  attr_reader :starting_station, :added_station, :end_station
 
   def initialize(starting_station, end_station)
     @starting_station = starting_station
     @end_station = end_station
-    @list_of_stations = [@starting_station, @end_station]
+    @added_station = []
   end
 
-  def add(station)
-    @list_of_stations.insert(-2, station)
+  def add_station(station)
+    @added_station << station
   end
 
   def delete(station)
-    @list_of_stations.delete(station)
+    @added_station.delete(station)
   end
+
+  def stations
+    [@starting_station, *@added_station, @end_station]
+  end  
 
 end
 
 class Train
-  attr_accessor :speed
-  attr_reader :number_of_trains, :current_station
+  attr_reader :number, :type, :number_of_trains, :speed, :route
 
   def initialize(number, type, number_of_trains)
     @number = number
     @type = type
     @number_of_trains = number_of_trains
+    @speed = 0
+    @current_station_index = 0
+    @route = []
+  end
+
+  def increase_speed(n)
+    @speed += n
+  end
+
+    def decrease_speed(n)
+    @speed -= n
+    @speed = 0 if @speed < 0
   end
 
   def stop
@@ -69,32 +84,39 @@ class Train
     end
   end
 
-  def add_route(route)
-    @current_route = route
-    @current_station = @current_route.list_of_stations[0]
-    @current_station.attach_train(self)
+  def add_route(route, starting_station, end_station)
+    @route = route
+    @current_station_index = 0
+    current_station.attach_train(self)
+  end
+
+  def current_station
+    @route.stations[@current_station_index]
   end
 
   def previous_station
-    index = @current_route.list_of_stations.index(@current_station) - 1
-    @current_route.list_of_stations[index]
+    return unless @current_station_index.positive?
+
+    @route.stations[@current_station_index - 1]
   end
 
   def next_station
-    index = @current_route.list_of_stations.index(@current_station) + 1
-    @current_route.list_of_stations[index]
+    @route.stations[@current_station_index + 1]
   end
 
   def go_next
-    @current_station.detach_train(self)
-    @current_station = self.next_station
-    @current_station.attach_train(self)
+    return if next_station.nil?
+
+    current_station.detach_train(self)
+    @current_station_index += 1
+    current_station.attach_train(self)
   end
 
   def go_previous
-    @current_station.detach_train(self)
-    @current_station = self.previous_station
-    @current_station.attach_train(self)
-  end
+    return if previous_station.nil?
 
+    current_station.detach_train(self)
+    @current_station_index -= 1
+    current_station.attach_train(self)
+  end
 end
