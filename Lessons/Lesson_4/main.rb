@@ -21,7 +21,7 @@ class Main
     loop do
       main_menu
       choice_number = gets.chomp.to_i
-			case choice_number
+      case choice_number
 			when 1 then create_station
 			when 2 then create_train
 			when 3 then create_route
