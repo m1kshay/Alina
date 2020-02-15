@@ -21,8 +21,8 @@ class Main
     loop do
       main_menu
       choice_number = gets.chomp.to_i
-      case choice_number
-			when 1 then create_station
+      case choice_numbeк
+      when 1 then create_station
 			when 2 then create_train
 			when 3 then create_route
 			when 4 then add_route_station
@@ -38,7 +38,7 @@ class Main
   private
 
   def main_menu
-	  puts 'Write 1 to create the station'
+    puts 'Write 1 to create the station'
 	  puts 'Write 2 to create the train'
 	  puts 'Write 3 to create the route'
 	  puts 'Write 4 to add station to the route'
