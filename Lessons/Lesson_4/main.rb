@@ -9,18 +9,18 @@ require_relative 'route'
 require_relative 'station'
 
 class Main
-	attr_reader :trains, :routes, :stations
+  attr_reader :trains, :routes, :stations
 
-	def initialize
-		@trains = []
+  def initialize
+    @trains = []
     @routes = []
-		@stations = []
-	end	
+    @stations = []
+  end	
 
-	def run_main_menu
-		loop do
-			main_menu
-			choice_number = gets.chomp.to_i
+  def run_main_menu
+    loop do
+      main_menu
+      choice_number = gets.chomp.to_i
 			case choice_number
 			when 1 then create_station
 			when 2 then create_train
@@ -32,10 +32,10 @@ class Main
 			when 8 then detach_wagon
 			when 9 then move_train
 			when 10 then view_stations_and_trains
-	  end
-	end
-	
-	private     				
+    end
+  end
+
+  private
 
   def main_menu
 	  puts 'Write 1 to create the station'
@@ -57,10 +57,10 @@ class Main
   end
 
   def create_station
-  	puts "Put the station's name"
-  	name = gets.chomp
-  	@stations << Station.new(name)
-  	p stations
+    puts "Put the station's name"
+    name = gets.chomp
+    @stations << Station.new(name)
+    p stations
   end
   
   def create_train

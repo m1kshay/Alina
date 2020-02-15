@@ -1,8 +1,8 @@
 require_relative 'wagon'
 
-class CargoWagon < Wagon
-	def initialize
-		@type = :cargo
-	end
+class CargoWagon < Wagom
+  def initialize
+    @type = :cargo
+  end
 end
-		
+    
