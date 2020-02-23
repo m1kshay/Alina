@@ -83,6 +83,8 @@ class Main
     puts e.message
     puts "Please try again"
     retry
+  ensure
+    puts "The train was successfully created"
   end
 
   def select_from_arr(array)
