@@ -1,9 +1,8 @@
 require_relative 'wagon'
 
 class CargoWagon < Wagon
-
-	attr_reader :volume, :occupied_volume, :available_volume
-	attr_writer :occupied_volume, :available_volume
+  attr_reader :volume, :occupied_volume, :available_volume
+  attr_writer :occupied_volume, :available_volume
 
   def initialize(volume)
     @type = :cargo

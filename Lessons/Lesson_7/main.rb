@@ -23,7 +23,7 @@ class Main
       choice_number = gets.chomp.to_i
       case choice_numbeк
       when 1 then create_station
-			when 2 then create_train
+      when 2 then create_train
 			when 3 then create_route
 			when 4 then add_route_station
 			when 5 then delete_route_station
