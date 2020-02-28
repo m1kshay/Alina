@@ -24,14 +24,14 @@ class Main
       case choice_numbeк
       when 1 then create_station
       when 2 then create_train
-			when 3 then create_route
-			when 4 then add_route_station
-			when 5 then delete_route_station
-			when 6 then set_the_train_route
-			when 7 then attach_wagon
-			when 8 then detach_wagon
-			when 9 then move_train
-			when 10 then view_stations_and_trains
+      when 3 then create_route
+      when 4 then add_route_station
+      when 5 then delete_route_station
+      when 6 then set_the_train_route
+      when 7 then attach_wagon
+      when 8 then detach_wagon
+      when 9 then move_train
+      when 10 then view_stations_and_trains
       when 11 then occupy
       when 12 then show_wagon
       when 0 then quit
@@ -43,27 +43,27 @@ class Main
 
   def main_menu
     puts 'Write 1 to create the station'
-	  puts 'Write 2 to create the train'
-	  puts 'Write 3 to create the route'
-	  puts 'Write 4 to add station to the route'
-	  puts 'Write 5 to delete station from the route'
-	  puts 'Write 6 to set the train route'
-	  puts 'Write 7 to attach the wagon to the train'
-	  puts 'Write 8 to detach the wagon from the train'
-	  puts 'Write 9 to move the train throughout the route'
-	  puts 'Write 10 to view a list of stations and trains'
+    puts 'Write 2 to create the train'
+    puts 'Write 3 to create the route'
+    puts 'Write 4 to add station to the route'
+    puts 'Write 5 to delete station from the route'
+    puts 'Write 6 to set the train route'
+    puts 'Write 7 to attach the wagon to the train'
+    puts 'Write 8 to detach the wagon from the train'
+    puts 'Write 9 to move the train throughout the route'
+    puts 'Write 10 to view a list of stations and trains'
     puts 'Write 11 to occupy wagon capacity'
     puts 'Write 12 to show wagons'
     puts 'Write 0 to quit the program'
   end
 
+  private
+  
   def show_arr(array)
     arr.each.with_index(1) do |item, index|
       puts "#{index} (#{item.info})"
     end
   end
-
-  private
 
   def create_station
     puts "Put the station's name"
