@@ -21,10 +21,5 @@ class Route
 
   def stations
     [@starting_station, *@added_station, @end_station]
-  end  
-
-  def info
-    [starting_station.name, end_station.name].join('-')
   end
-
 end
