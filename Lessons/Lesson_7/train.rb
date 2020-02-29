@@ -6,7 +6,6 @@ class Train
   include CompanyManufacturer
   include InstanceCounter
   include Validatable
-
   attr_reader :number, :type, :speed, :route, :wagons
   @@trains_number = {}
 
@@ -29,6 +28,7 @@ class Train
 
   def self.find(number)
     @@trains_number[number]
+  end
 
   def increase_speed(n)
     @speed += n
@@ -43,22 +43,12 @@ class Train
     @speed = 0
   end
 
-  def attach_wagon(w)
-    @wagon = w
-    if @speed.zero?
-    else
-      puts 'To attach the wagon, you need to stop the train'
-    end
-    @wagons << wagon
+  def attach_wagon(wagon)
+    wagons.push(wagon) if speed.zero? && wagon.type == self.type
   end
 
-  def detach_wagon(w)
-    @wagon = w
-    if @speed.zero?
-    else
-      puts 'To detach the wagon, you need to stop the train' 
-    end
-    @wagons.pop
+  def detach_wagon(wagon)
+   wagons.pop if speed.zero?
   end
 
   def add_route(route)

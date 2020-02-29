@@ -4,7 +4,6 @@ require_relative 'validatable'
 class Station
   include InstanceCounter
   include Validatable
-
   attr_reader :name, :trains
 
   @@created_stations = []
