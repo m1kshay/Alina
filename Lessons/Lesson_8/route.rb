@@ -4,6 +4,7 @@ require_relative 'instance_counter'
 
 class Route
   include InstanceCounter
+  
   attr_reader :starting_station, :added_station, :end_station
 
   def initialize(starting_station, end_station)

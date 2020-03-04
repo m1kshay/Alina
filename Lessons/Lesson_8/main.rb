@@ -22,7 +22,7 @@ class Main
     loop do
       main_menu
       choice_number = gets.chomp.to_i
-      case choice_numbeк
+      case choice_number
       when 1 then create_station
       when 2 then create_train
       when 3 then create_route
@@ -125,7 +125,7 @@ class Main
     retry
   ensure
     puts 'Route is successfully created'
- end
+  end
 
   def add_route_station
     if routes.empty?
