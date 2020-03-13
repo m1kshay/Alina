@@ -3,11 +3,10 @@
 require_relative 'instance_counter'
 require_relative 'validation'
 
-
 class Route
   include InstanceCounter
   include Validation
-  
+
   attr_reader :starting_station, :added_station, :end_station
 
   def initialize(starting_station, end_station)
